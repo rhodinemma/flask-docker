@@ -1,4 +1,6 @@
-# Simple Python Flask Dockerized Application#
+# Simple Python Flask Dockerized Application
+
+[![Build Docker Image](https://github.com/rhodinemma/flask-docker/actions/workflows/build.yml/badge.svg)](https://github.com/rhodinemma/flask-docker/actions/workflows/build.yml)
 
 Build the image using the following command
 
