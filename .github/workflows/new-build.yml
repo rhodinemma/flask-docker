@@ -22,8 +22,11 @@ jobs:
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+    - name: Create a tag here
+      id: tag
+      run: echo "latest"
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ secrets.REPO_NAME }}:latest
+      run: docker build . --file Dockerfile --tag ${{ secrets.REPO_NAME }}:${{ steps.tag.outputs.tag }}
     - name: Docker Push
-      run: docker push $DOCKER_USERNAME/$REPO_NAME:latest
+      run: docker push $DOCKER_USERNAME/$REPO_NAME:${{ steps.tag.outputs.tag }}
